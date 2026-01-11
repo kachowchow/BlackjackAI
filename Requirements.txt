@@ -1,1 +1,6 @@
 pygame
+pandas
+numpy
+matplotlib
+seaborn
+pickle
