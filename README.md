@@ -1,49 +1,38 @@
-AI Blackjack Trainer: Reinforcement Learning via Q-Learning
-A Reinforcement Learning (RL) project that uses a Q-Learning agent to master the game of Blackjack. The project features a custom-built environment in Pygame, a "headless" fast-training mode, and real-time visualization of the AI's decision-making policy through heatmaps.
+# 🃏 **AI Blackjack Trainer: Reinforcement Learning via Q-Learning**
 
-🚀 Features
-Q-Learning Agent: Implements the Bellman Equation to update state-action values.
+A high-performance **Reinforcement Learning (RL)** project featuring a **Q-Learning** agent that learns to play Blackjack from scratch. Built with **Python** and **Pygame**, this project demonstrates how an agent can transition from total randomness to a mathematically optimal strategy through trial and error.
+---
 
-Dynamic Visualization: Generates heatmaps using Seaborn and Matplotlib to show the AI's learned strategy (Hit vs. Stand).
+## 🚀 **Key Features**
+* **Self-Learning Agent**: Implements the **Bellman Equation** to update state-action values ($Q$-values).
+* **Dynamic Visualization**: Generates real-time **Heatmaps** using `Seaborn` and `Matplotlib` to visualize the AI's "Brain."
+* **Epsilon-Greedy Strategy**: Features an adjustable **Exploration vs. Exploitation** balance with a decaying epsilon rate.
+* **Headless Fast-Training**: Optimized loop architecture that bypasses rendering to simulate thousands of episodes per second.
+* **Custom Game Engine**: A robust Blackjack environment built in **Pygame** with automated dealer logic and deck management.
+---
 
-Epsilon-Greedy Strategy: Balances exploration and exploitation, with a decaying epsilon rate to transition from random guessing to optimal play.
+## 🧠 **The Machine Learning Logic**
+The agent views the game as a **State** consisting of:
+1.  **Player’s Total** (4–21)
+2.  **Dealer’s Visible Card** (2–Ace)
+3.  **Usable Ace** (True/False)
 
-Fast Training Mode: Bypasses graphical rendering to simulate thousands of hands per second for rapid learning.
+### **The Reward System**
+The AI's behavior is shaped by a simple feedback loop:
+* **Win**: `+1.0` Reward
+* **Loss / Bust**: `-1.0` Reward
+* **Draw (Push)**: `0.0` Reward
+---
 
-Custom Pygame UI: A fully interactive Blackjack table that displays real-time statistics, episode counts, and AI "randomness" levels.
+## 📊 **Policy Visualization**
+By pressing the **'V'** key, you can view the AI's learned policy. This heatmap shows the most profitable move for every possible hand combination.
+* **Green (1)**: The AI has learned to **HIT**.
+* **Red (0)**: The AI has learned to **STAND**.
+---
 
-🛠️ Technical Stack
-Language: Python 3.x
+## 🛠️ **Installation & Usage**
 
-Graphics: Pygame
-
-Data Science: NumPy, Pandas
-
-Visualization: Matplotlib, Seaborn
-
-Algorithm: Reinforcement Learning (Q-Learning)
-
-🧠 How It Works
-The AI perceives the game as a State consisting of three variables:
-
-Player’s Current Total (4–21)
-
-Dealer’s Visible Card (2–Ace)
-
-Usable Ace (True/False)
-
-The agent receives a Reward of +1.0 for a win, -1.0 for a loss or bust, and 0.0 for a draw. Over thousands of episodes, the agent updates its Q-Table, eventually recreating the mathematically optimal "Basic Strategy" for Blackjack.
-
-📊 Performance Visualization
-The project includes a policy visualizer. By pressing V during execution, the program generates a heatmap:
-
-Green (1): The AI has learned to HIT.
-
-Red (0): The AI has learned to STAND.
-
-🎮 Controls
-Automatic Play: The AI plays hands automatically at high speed.
-
-V Key: Toggle the Policy Heatmap visualization.
-
-ESC/Close: Exit the trainer.
+### **1. Prerequisites**
+Ensure you have the following libraries installed:
+```bash
+pip install pygame numpy pandas seaborn matplotlib
