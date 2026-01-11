@@ -1,4 +1,4 @@
-#AI Blackjack Trainer: Reinforcement Learning via Q-Learning
+AI Blackjack Trainer: Reinforcement Learning via Q-Learning
 A Reinforcement Learning (RL) project that uses a Q-Learning agent to master the game of Blackjack. The project features a custom-built environment in Pygame, a "headless" fast-training mode, and real-time visualization of the AI's decision-making policy through heatmaps.
 
 🚀 Features
