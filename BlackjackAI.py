@@ -9,11 +9,10 @@ import pickle
 
 # --- INITIALIZATION ---
 pygame.init()
-WIDTH, HEIGHT = 600, 900
+WIDTH, HEIGHT = 800, 900
 screen = pygame.display.set_mode([WIDTH, HEIGHT])
 pygame.display.set_caption('AI Blackjack Trainer')
 timer = pygame.time.Clock()
-fps = 60
 font = pygame.font.Font('freesansbold.ttf', 44)
 smaller_font = pygame.font.Font('freesansbold.ttf', 36)
 
@@ -53,7 +52,6 @@ def deal_cards(current_hand, current_deck):
 # --- AI LOGIC ---
 def get_state(my_hand, dealer_hand):
     p_sum = calculate_score(my_hand)
-    # Use the dealer's visible card (index 1)
     upcard = dealer_hand[1]
     d_val = 10 if upcard in ['J', 'Q', 'K'] else (11 if upcard == 'A' else int(upcard))
     usable_ace = 'A' in my_hand and calculate_score(my_hand) <= 21
@@ -70,7 +68,6 @@ def update_q_table(state, action, reward):
     if state not in q_table:
         q_table[state] = [0.0, 0.0]
     old_value = q_table[state][action]
-    # Simple Temporal Difference update
     q_table[state][action] = old_value + learning_rate * (reward - old_value)
 
 def visualize_policy():
